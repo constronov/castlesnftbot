@@ -1,7 +1,7 @@
 (async () => {
-  const PAUSE_BETWEEN = 1 * 1000;
-  const PAUSE_TAB = 2 * 1000;
-  const PAUSE_MINING = 20 * 1000;
+  const PAUSE_BETWEEN = 10 * 1000;
+  const PAUSE_TAB = 20 * 1000;
+  const PAUSE_MINING = 30 * 1000;
 
 
   while (1) {
