@@ -1,7 +1,7 @@
 (async () => {
-  const PAUSE_BETWEEN = 10 * 1000;
-  const PAUSE_TAB = 20 * 1000;
-  const PAUSE_MINING = 30 * 1000;
+  const PAUSE_BETWEEN = 5 * 1000;
+  const PAUSE_TAB = 10 * 1000;
+  const PAUSE_MINING = 20 * 1000;
 
 
   while (1) {
@@ -123,6 +123,8 @@
 
 
     // Manage Battles
+    console.log('Manage Battles ...');
+
     buttonDungeons = document.querySelector("#__next > div.container.oveflow-x-hidden > div > nav > div.z-40.absolute.w-full.h-24.md\\:h-48.min-w-max.bg-\\[url\\(\\'\\/img\\/background\\/headerbg\\.png\\'\\)\\].bg-center.bg-contain.md\\:bg-left-top.bg-repeat-x.mt-0.flex.items-center.justify-center.pb-12.md\\:pb-24.xl\\:px-12.px-4 > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(7) > p > span");
     if (buttonDungeons != null) {buttonDungeons.click();}
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
@@ -133,12 +135,44 @@
     await new Promise((res) => setTimeout(res, PAUSE_TAB));
 
     // Mint Battles
-    timeToBattle = document.querySelector("#fight-now > button > div > div > p > span > span");
-    if (timeToBattle.innerText === "00:00:00")
+    timeToBattle = document.querySelector("#fight-now > button");
+    if (timeToBattle != null && timeToBattle.innerText === "Daily Battle")
     {
       const buttonAutoBattle = document.querySelector("#auto-daily-battle > button");
       if (buttonAutoBattle != null) {buttonAutoBattle.click();}
+      
+      await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+
+      const buttonAutoBattleAccept = document.querySelector("div > div > div.mt-5 > button");
+      if (buttonAutoBattleAccept != null) {buttonAutoBattleAccept.click();}
+      console.log('... Autobattle executed'); 
+
       await new Promise((res) => setTimeout(res, PAUSE_MINING));
     }
+
+
+
+    // Manage Tomes
+    console.log('Manage Monster Tomes ...');
+
+    buttonDungeons = document.querySelector("#__next > div.absolute.w-full.overflow-x-hidden > div > div.w-full.h-full.group\\:target > div.fixed.w-full.z-50 > nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(7) > p > span");
+
+    if (buttonDungeons != null) {buttonDungeons.click();}
+    await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+
+    const buttonTomes = document.querySelector("li:nth-child(5) > div > div > span > img");
+    if (buttonTomes != null) {buttonTomes.click();}
+
+    await new Promise((res) => setTimeout(res, PAUSE_TAB));
+
+    // Mint Tomes
+    const buttonTomesMint = document.querySelector("#header > div.mt-\\[200px\\].md\\:mt-\\[330px\\] > div > div.flex.flex-col.justify-center.items-center.gap-2 > div > div > div > button");
+    if(buttonTomesMint != null && !buttonTomesMint.className.startsWith('cursor-not-allowed')) { 
+      buttonTomesMint.click(); 
+      console.log('... Minted Monster Tomes'); 
+      await new Promise((res) => setTimeout(res, PAUSE_MINING));
+    }
+    else {await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));}
+
   }
 })();
