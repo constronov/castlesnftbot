@@ -159,7 +159,7 @@
     if (buttonDungeons != null) {buttonDungeons.click();}
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-    const buttonTomes = document.querySelector("li:nth-child(5) > div > div > span > img");
+    const buttonTomes = document.querySelector("li:nth-child(2) > div > div > span > img");
     if (buttonTomes != null) {buttonTomes.click();}
 
     await new Promise((res) => setTimeout(res, PAUSE_TAB));
