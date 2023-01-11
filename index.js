@@ -9,9 +9,7 @@
     // Manage Barons
     console.log('Manage Barons ...');
 
-    buttonCraft = document.querySelector(
-      "span.flex.flex-center.justify-center.gap-2.titleDropDown"
-    );
+    buttonCraft = document.querySelector("#__next > div.container.oveflow-x-hidden > div > nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span");
     buttonCraft.click();
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
@@ -45,7 +43,6 @@
     // Manage Castles
     console.log('Manage Castles ...');
 
-    buttonCraft = document.querySelector("span.flex.flex-center.justify-center.gap-2.titleDropDown");
     if(buttonCraft != null) { buttonCraft.click(); }
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
@@ -78,7 +75,6 @@
     // Manage Lumberjacks
     console.log('Manage Lumberjacks ...');
 
-    buttonCraft = document.querySelector("span.flex.flex-center.justify-center.gap-2.titleDropDown");
     if(buttonCraft != null) { buttonCraft.click(); }
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
@@ -102,7 +98,6 @@
     // Manage Carpenters
     console.log('Manage Carpenters ...');
 
-    buttonCraft = document.querySelector("span.flex.flex-center.justify-center.gap-2.titleDropDown");
     if(buttonCraft != null) { buttonCraft.click(); }
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
