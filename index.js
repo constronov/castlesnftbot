@@ -9,7 +9,7 @@
     // Manage Barons
     console.log('Manage Barons ...');
 
-    buttonCraft = document.querySelector("#__next > div.container.oveflow-x-hidden > div > nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span");
+    buttonCraft = document.querySelector("nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span");
     buttonCraft.click();
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
@@ -43,6 +43,7 @@
     // Manage Castles
     console.log('Manage Castles ...');
 
+    buttonCraft = document.querySelector("nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span");
     if(buttonCraft != null) { buttonCraft.click(); }
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
@@ -75,6 +76,7 @@
     // Manage Lumberjacks
     console.log('Manage Lumberjacks ...');
 
+    buttonCraft = document.querySelector("nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span");
     if(buttonCraft != null) { buttonCraft.click(); }
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
@@ -98,6 +100,7 @@
     // Manage Carpenters
     console.log('Manage Carpenters ...');
 
+    buttonCraft = document.querySelector("nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span");
     if(buttonCraft != null) { buttonCraft.click(); }
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
@@ -120,11 +123,12 @@
     // Manage Battles
     console.log('Manage Battles ...');
 
-    buttonDungeons = document.querySelector("#__next > div.container.oveflow-x-hidden > div > nav > div.z-40.absolute.w-full.h-24.md\\:h-48.min-w-max.bg-\\[url\\(\\'\\/img\\/background\\/headerbg\\.png\\'\\)\\].bg-center.bg-contain.md\\:bg-left-top.bg-repeat-x.mt-0.flex.items-center.justify-center.pb-12.md\\:pb-24.xl\\:px-12.px-4 > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(7) > p > span");
+    buttonDungeons = document.querySelector("div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(6) > p > span");
+    
     if (buttonDungeons != null) {buttonDungeons.click();}
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-    const buttonHeroBattle = document.querySelector("#__next > div.container.oveflow-x-hidden > div > nav > div.z-10.absolute.w-full.bg-\\[\\#053654\\].lg\\:border-b.border-\\[\\#828282\\].h-screen.overflow-scroll.lg\\:h-auto.lg\\:overflow-auto > div > div.pl-14 > ul.hidden.lg\\:flex.lg\\:justify-evenly.lg\\:p-14.lg\\:pt-0 > li:nth-child(3) > div > div > span > img");
+    const buttonHeroBattle = document.querySelector("#__next > div.container.oveflow-x-hidden > div > nav > div.z-10.absolute.w-full.bg-\\[\\#053654\\].lg\\:border-b.border-\\[\\#828282\\].h-screen.overflow-scroll.lg\\:h-auto.lg\\:overflow-auto > div > div.pl-14 > ul.hidden.lg\\:flex.lg\\:justify-evenly.lg\\:p-14.lg\\:pt-0 > li:nth-child(4) > div > div > span > img");
     if (buttonHeroBattle != null) {buttonHeroBattle.click();}
 
     await new Promise((res) => setTimeout(res, PAUSE_TAB));
@@ -150,7 +154,7 @@
     // Manage Tomes
     console.log('Manage Monster Tomes ...');
 
-    buttonDungeons = document.querySelector("#__next > div.absolute.w-full.overflow-x-hidden > div > div.w-full.h-full.group\\:target > div.fixed.w-full.z-50 > nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(7) > p > span");
+    buttonDungeons = document.querySelector("div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(6) > p > span");
 
     if (buttonDungeons != null) {buttonDungeons.click();}
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
