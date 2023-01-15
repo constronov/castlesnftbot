@@ -10,7 +10,7 @@
     console.log('Manage Barons ...');
 
     buttonCraft = document.querySelector("nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span");
-    buttonCraft.click();
+    if (buttonCraft != null) { buttonCraft.click(); }
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
     const buttonBaron = document.querySelector("img[src='/_next/image?url=%2Fimg%2Fheader%2Fbarons.png&w=256&q=75']");
