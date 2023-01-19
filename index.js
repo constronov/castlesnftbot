@@ -88,7 +88,8 @@
     await new Promise((res) => setTimeout(res, PAUSE_TAB));
 
     // Mint Lumberjack
-    const buttonLumberMint = document.querySelector("#header > div.mt-\\[380px\\].md\\:mt-\\[500px\\] > div > div:nth-child(4) > div > div > div > button");
+    const buttonLumberMint = document.querySelector("div:nth-child(4) > div > div > div.tooltip > button");
+    
     if(buttonLumberMint != null && !buttonLumberMint.className.startsWith('cursor-not-allowed')) { 
       buttonLumberMint.click(); 
       console.log('... Minted Castles'); 
@@ -99,10 +100,11 @@
 
 
 
-    // Manage Lumberjacks
-    console.log('Manage Lumberjacks ...');
+    // Manage Carpenters
+    console.log('Manage Carpenters ...');
 
-    buttonCraft = document.querySelector("div:nth-child(4) > div > div > div.tooltip > button");
+    buttonCraft = document.querySelector("nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span");
+    
     if(buttonCraft != null) { buttonCraft.click(); }
     await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
@@ -112,7 +114,7 @@
     await new Promise((res) => setTimeout(res, PAUSE_TAB));
 
     // Mint Carpenters
-    console.log('Manage Carpenters ...');
+    console.log('Mint Carpenters ...');
 
     const buttonCarpenterMint = document.querySelector("div:nth-child(4) > div > div > div.tooltip > button");
     if(buttonCarpenterMint != null && !buttonCarpenterMint.className.startsWith('cursor-not-allowed')) { 
