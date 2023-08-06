@@ -2,6 +2,7 @@
   const PAUSE_BETWEEN = 5 * 1000;
   const PAUSE_TAB = 10 * 1000;
   const PAUSE_MINING = 20 * 1000;
+  const ITERATIONS = 6;
 
 
   while (1) {
@@ -141,12 +142,21 @@
     await new Promise((res) => setTimeout(res, PAUSE_TAB));
 
     // Mint Battles
+    buttonLeft = document.querySelector("#carousel_controls > div.absolute.z-30.w-\\[45px\\].h-\\[45px\\].mt-10.-left-10.md\\:-left-14.-scale-x-100.cursor-pointer > span > img");
+    if (buttonLeft != null) {
+      buttonLeft.click();
+      await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+    }
+
     timeToBattle = document.querySelector("#fight-now > button");
-    if (timeToBattle != null && timeToBattle.innerText === "Daily Battle")
-    {
+    if (timeToBattle != null && timeToBattle.innerText === "Daily Battle") {
       const buttonAutoBattle = document.querySelector("#auto-daily-battle > button");
-      if (buttonAutoBattle != null) {buttonAutoBattle.click();}
-      
+      if (buttonAutoBattle != null) {
+        for(let i=0; i<3; i++) {
+          buttonAutoBattle.click();
+          await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+        }
+      }
       await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
       const buttonAutoBattleAccept = document.querySelector("div > div > div.mt-5 > button");
@@ -182,5 +192,51 @@
     }
     else {await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));}
 
+    // Open Packs
+    const packIcons = document.querySelectorAll("#tooltip-low-and-high-bounties > span:nth-child(2) > img");
+
+    for(let i=0; i<3; i++) {
+      packetCount = document.querySelector(`div > div:nth-child(${i+1}) > small`);
+      if(packetCount != null && packetCount.innerText != "0") {
+        console.log('Collect Packages ...');
+        if (packIcons[i] != null) {
+          packIcons[i].click();
+          await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+
+          packOpenAll = document.querySelector("div > section > aside > div");
+          if (packOpenAll != null) {
+            packOpenAll.click();
+            await new Promise((res) => setTimeout(res, PAUSE_MINING));
+
+            packClaimAll = document.querySelector("div > section > aside > div");
+            if (packClaimAll != null) {
+              packClaimAll.click();
+              await new Promise((res) => setTimeout(res, PAUSE_MINING));
+            }
+          }
+        }
+      }
+    }    
+
+    // Manage WAX
+    console.log('Manage WAX ...');
+
+    buttonDungeons = document.querySelector("div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(6) > p > span");
+
+    if (buttonDungeons != null) {buttonDungeons.click();}
+    await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+
+    const buttonWax = document.querySelector("li:nth-child(6) > div > div > span > span");
+    if (buttonWax != null) {buttonWax.click();}
+    await new Promise((res) => setTimeout(res, PAUSE_TAB));
+
+    // Mint WAX
+    const buttonWaxMint = document.querySelector("div:nth-child(3) > div:nth-child(2) > button");
+    
+    if (buttonWaxMint != null && buttonWaxMint.innerText === "Claim All") {
+      buttonWaxMint.click();
+      await new Promise((res) => setTimeout(res, PAUSE_MINING));
+    }
+    await new Promise((res) => setTimeout(res, PAUSE_TAB));
   }
 })();
