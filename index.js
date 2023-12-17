@@ -1,242 +1,250 @@
 (async () => {
-  const PAUSE_BETWEEN = 5 * 1000;
-  const PAUSE_TAB = 10 * 1000;
-  const PAUSE_MINING = 20 * 1000;
-  const ITERATIONS = 6;
+    const PAUSE_BETWEEN = 3 * 1000;
+    const PAUSE_MINING = 10 * 1000;
 
+    const ManageBarons = true;
+    const ManageCastles = true;
+    const ManageLumberjacks = true;
+    const ManageCarpenters = true;
+    const ManageTomes = true;
+    const ManageBattles = true;
+    const ManageLoot = false;
 
-  while (1) {
-
-    // Manage Barons
-    console.log('Manage Barons ...');
-
-    buttonCraft = document.querySelector("nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span");
-    if (buttonCraft != null) { buttonCraft.click(); }
-    await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
-
-    const buttonBaron = document.querySelector("img[src='/_next/image?url=%2Fimg%2Fheader%2Fbarons.png&w=256&q=75']");
-    if(buttonBaron != null) { buttonBaron.click(); }
-
-    await new Promise((res) => setTimeout(res, PAUSE_TAB));
-
-    // Mint Barons
-    const buttonBaronMint = document.querySelector("div:nth-child(4) > div > div > div.tooltip > button");
+    const ButtonTopMenuCraft = "div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span";
+    const ButtonTopMenuDungeons = "div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(6) > p > span";
     
-    if(buttonBaronMint != null && !buttonBaronMint.className.startsWith('cursor-not-allowed')) { 
-      buttonBaronMint.click();
-      console.log('... Minted Barons'); 
-      await new Promise((res) => setTimeout(res, PAUSE_MINING));
-    }
-    else {await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));}
-    
-    // Recharge Barons
-    // const buttonBaronRecharge = document.querySelector("#header > div.mt-\\[380px\\].md\\:mt-\\[550px\\] > div > div:nth-child(4) > div > button");
-    // if(buttonBaronRecharge != null && !buttonBaronRecharge.className.startsWith('cursor-not-allowed')) { 
-    //   buttonBaronRecharge.click(); 
-    //   console.log('... Recharged Barons'); 
-    //   await new Promise((res) => setTimeout(res, PAUSE_MINING));
-    // }
-    // else {await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));}
+    while (1) {
+        if (ManageBarons) {
+            /* 
+            *   Manage Barons
+            */
+            // Navigate to Barons
+            console.log("Manage Barons ...");
+            clickButton(ButtonTopMenuCraft);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
+            const ButtonTopMenuItemBaron = "li:nth-child(1) > div > div > span > img";
+            clickButton(ButtonTopMenuItemBaron);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-
-
-
-    // Manage Castles
-    console.log('Manage Castles ...');
-
-    buttonCraft = document.querySelector("nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span");
-    if(buttonCraft != null) { buttonCraft.click(); }
-    await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
-
-    const buttonCastle = document.querySelector("img[src='/_next/image?url=%2Fimg%2Fheader%2Fcastles.png&w=256&q=75']");
-    if(buttonCastle != null) { buttonCastle.click(); }
-
-    await new Promise((res) => setTimeout(res, PAUSE_TAB));
-
-    // Mint Castles
-    const buttonCastleMint = document.querySelector("div:nth-child(4) > div > div > div.tooltip > button");
-    
-    if(buttonCastleMint != null && !buttonCastleMint.className.startsWith('cursor-not-allowed')) { 
-      buttonCastleMint.click(); 
-      console.log('... Minted Castles'); 
-      await new Promise((res) => setTimeout(res, PAUSE_MINING));
-    }
-    else {await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));}
-
-    // Recharge Castles
-    // const buttonCastleRecharge = document.querySelector("#header > div.mt-\\[380px\\].md\\:mt-\\[500px\\] > div > div:nth-child(4) > div > button");
-    // if(buttonCastleRecharge != null && !buttonCastleRecharge.className.startsWith('cursor-not-allowed')) { 
-    //   buttonCastleRecharge.click(); 
-    //   console.log('... Minted Castles'); 
-    //   await new Promise((res) => setTimeout(res, PAUSE_MINING));
-    // }
-    // else {await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));}
-
-
-
-
-    // Manage Lumberjacks
-    console.log('Manage Lumberjacks ...');
-
-    buttonCraft = document.querySelector("nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span");
-    if(buttonCraft != null) { buttonCraft.click(); }
-    await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
-
-    const buttonLumber = document.querySelector("img[src='/_next/image?url=%2Fimg%2Fheader%2Flumberjacks.png&w=256&q=75']");
-    if(buttonLumber != null) { buttonLumber.click(); }
-
-    await new Promise((res) => setTimeout(res, PAUSE_TAB));
-
-    // Mint Lumberjack
-    const buttonLumberMint = document.querySelector("div:nth-child(4) > div > div > div.tooltip > button");
-    
-    if(buttonLumberMint != null && !buttonLumberMint.className.startsWith('cursor-not-allowed')) { 
-      buttonLumberMint.click(); 
-      console.log('... Minted Castles'); 
-      await new Promise((res) => setTimeout(res, PAUSE_MINING));
-    }
-    else {await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));}
-    
-
-
-
-    // Manage Carpenters
-    console.log('Manage Carpenters ...');
-
-    buttonCraft = document.querySelector("nav > div > div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span");
-    
-    if(buttonCraft != null) { buttonCraft.click(); }
-    await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
-
-    const buttonCarpenter = document.querySelector("img[src='/_next/image?url=%2Fimg%2Fheader%2Fcarpenters.png&w=256&q=75']");
-    if(buttonCarpenter != null) { buttonCarpenter.click(); }
-
-    await new Promise((res) => setTimeout(res, PAUSE_TAB));
-
-    // Mint Carpenters
-    console.log('Mint Carpenters ...');
-
-    const buttonCarpenterMint = document.querySelector("div:nth-child(4) > div > div > div.tooltip > button");
-    if(buttonCarpenterMint != null && !buttonCarpenterMint.className.startsWith('cursor-not-allowed')) { 
-      buttonCarpenterMint.click(); 
-      console.log('... Minted Carpenters'); 
-      await new Promise((res) => setTimeout(res, PAUSE_MINING));
-    }
-    else {await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));}
-
-
-
-    // Manage Battles
-    console.log('Manage Battles ...');
-
-    buttonDungeons = document.querySelector("div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(6) > p > span");
-    
-    if (buttonDungeons != null) {buttonDungeons.click();}
-    await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
-
-    const buttonHeroBattle = document.querySelector("li:nth-child(3) > div > div > span > span");
-    
-    if (buttonHeroBattle != null) {buttonHeroBattle.click();}
-
-    await new Promise((res) => setTimeout(res, PAUSE_TAB));
-
-    // Mint Battles
-    buttonLeft = document.querySelector("#carousel_controls > div.absolute.z-30.w-\\[45px\\].h-\\[45px\\].mt-10.-left-10.md\\:-left-14.-scale-x-100.cursor-pointer > span > img");
-    if (buttonLeft != null) {
-      buttonLeft.click();
-      await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
-    }
-
-    timeToBattle = document.querySelector("#fight-now > button");
-    if (timeToBattle != null && timeToBattle.innerText === "Daily Battle") {
-      const buttonAutoBattle = document.querySelector("#auto-daily-battle > button");
-      if (buttonAutoBattle != null) {
-        for(let i=0; i<3; i++) {
-          buttonAutoBattle.click();
-          await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+            // Mint stuff
+            const ButtonBaronsMint = "div:nth-child(4) > div > div > div.tooltip > button";
+            waitTime = clickActiveButton(ButtonBaronsMint, "Barons");
+            await new Promise((res) => setTimeout(res, waitTime));
         }
-      }
-      await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-      const buttonAutoBattleAccept = document.querySelector("div > div > div.mt-5 > button");
-      if (buttonAutoBattleAccept != null) {buttonAutoBattleAccept.click();}
-      console.log('... Autobattle executed'); 
+        if (ManageCastles) {
+            /* 
+            *   Manage Castles
+            */
+            // Navigate to Castles
+            console.log("Manage Castles ...");
+            clickButton(ButtonTopMenuCraft);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-      await new Promise((res) => setTimeout(res, PAUSE_MINING));
-    }
+            const ButtonTopMenuItemCastles = "li:nth-child(2) > div > div > span > img";
+            clickButton(ButtonTopMenuItemCastles);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
+            // Mint stuff
+            const ButtonCastlesMint = "div:nth-child(4) > div > div > div.tooltip > button";
+            waitTime = clickActiveButton(ButtonCastlesMint, "Castles");
+            await new Promise((res) => setTimeout(res, waitTime));
+        }
 
+        if (ManageLumberjacks) {
+            /* 
+            *   Manage Lumberjacks
+            */
+            // Navigate to Lumberjacks
+            console.log("Manage Lumberjacks ...");
+            clickButton(ButtonTopMenuCraft);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-    // Manage Tomes
-    console.log('Manage Monster Tomes ...');
+            const ButtonTopMenuItemLumberjacks = "li:nth-child(3) > div > div > span > img";
+            clickButton(ButtonTopMenuItemLumberjacks);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-    buttonDungeons = document.querySelector("div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(6) > p > span");
+            // Mint stuff
+            const ButtonLumberjacksMint = "div:nth-child(4) > div > div > div.tooltip > button";
+            waitTime = clickActiveButton(ButtonLumberjacksMint, "Lumberjacks");
+            await new Promise((res) => setTimeout(res, waitTime));
+        }
 
-    if (buttonDungeons != null) {buttonDungeons.click();}
-    await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+        if (ManageCarpenters) {
+            /* 
+            *   Manage Carpenters
+            */
+            // Navigate to Carpenters
+            console.log("Manage Carpenters ...");
+            clickButton(ButtonTopMenuCraft);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-    const buttonTomes = document.querySelector("li:nth-child(2) > div > div > span > span");
-    
-    if (buttonTomes != null) {buttonTomes.click();}
+            const ButtonTopMenuItemCarpenters = "li:nth-child(4) > div > div > span > img";
+            clickButton(ButtonTopMenuItemCarpenters);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-    await new Promise((res) => setTimeout(res, PAUSE_TAB));
+            //Mint stuff
+            const ButtonCarpentersMint = "div:nth-child(4) > div > div > div.tooltip > button";
+            waitTime = clickActiveButton(ButtonCarpentersMint, "Carpenters");
+            await new Promise((res) => setTimeout(res, waitTime));
+        }
 
-    // Mint Tomes
-    const buttonTomesMint = document.querySelector("div > div > div.tooltip > button");
-    
-    if(buttonTomesMint != null && !buttonTomesMint.className.startsWith('cursor-not-allowed')) { 
-      buttonTomesMint.click(); 
-      console.log('... Minted Monster Tomes'); 
-      await new Promise((res) => setTimeout(res, PAUSE_MINING));
-    }
-    else {await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));}
+        if (ManageTomes) {
+            /* 
+            *   Manage Tomes
+            */
+            // Navigate to Tomes
+            console.log("Manage Tomes ...");
+            clickButton(ButtonTopMenuDungeons);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-    // Open Packs
-    const packIcons = document.querySelectorAll("#tooltip-low-and-high-bounties > span:nth-child(2) > img");
+            const ButtonTopMenuItemTomes ="li:nth-child(2) > div > div > span > img";
+            clickButton(ButtonTopMenuItemTomes);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-    for(let i=0; i<3; i++) {
-      packetCount = document.querySelector(`div > div:nth-child(${i+1}) > small`);
-      if(packetCount != null && packetCount.innerText != "0") {
-        console.log('Collect Packages ...');
-        if (packIcons[i] != null) {
-          packIcons[i].click();
-          await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+            // Mint Stuff
+            const ButtonTomesMint = "div > div > div.tooltip > button";
+            clickActiveButton(ButtonTomesMint, "Tomes");
 
-          packOpenAll = document.querySelector("div > section > aside > div");
-          if (packOpenAll != null) {
-            packOpenAll.click();
-            await new Promise((res) => setTimeout(res, PAUSE_MINING));
-
-            packClaimAll = document.querySelector("div > section > aside > div");
-            if (packClaimAll != null) {
-              packClaimAll.click();
-              await new Promise((res) => setTimeout(res, PAUSE_MINING));
+            const packIcons = document.querySelectorAll("#tooltip-low-and-high-bounties > span:nth-child(2) > img");
+            for(let i=0; i<3; i++) {
+                packetCount = document.querySelector(`div > div:nth-child(${i+1}) > small`);
+                if(packetCount != null && packetCount.innerText != "0") {
+                    console.log('Collect Packages ...');
+                    if (packIcons[i] != null) {
+                        packIcons[i].click();
+                        await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+        
+                        packOpenAll = document.querySelector("div > section > aside > div");
+                        if (packOpenAll != null) {
+                            packOpenAll.click();
+                            await new Promise((res) => setTimeout(res, PAUSE_MINING));
+        
+                            packClaimAll = document.querySelector("div > section > aside > div");
+                            if (packClaimAll != null) {
+                                packClaimAll.click();
+                                await new Promise((res) => setTimeout(res, PAUSE_MINING));
+                            }
+                        }
+                    }   
+                }  
             }
-          }
         }
-      }
-    }    
 
-    // Manage WAX
-    console.log('Manage WAX ...');
+        if (ManageBattles) {
+            /* 
+            *   Manage Battles
+            */
+            // Navigate to Battles
+            console.log("Manage Battles ...");
+            clickButton(ButtonTopMenuDungeons);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-    buttonDungeons = document.querySelector("div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(6) > p > span");
+            const ButtonTopMenuItemBattles = "li:nth-child(3) > div > div > span > img";
+            clickButton(ButtonTopMenuItemBattles);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-    if (buttonDungeons != null) {buttonDungeons.click();}
-    await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+            //Mint stuff
+            const ButtonLoadMore = "div.self-center.lg\\:self-end > button > div > div";
+            clickButton(ButtonLoadMore);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-    const buttonWax = document.querySelector("li:nth-child(6) > div > div > span > span");
-    if (buttonWax != null) {buttonWax.click();}
-    await new Promise((res) => setTimeout(res, PAUSE_TAB));
+            const ButtonCarousselLeft = "#carousel_controls > div.absolute.z-30.w-\\[45px\\].h-\\[45px\\].mt-10.-left-10.md\\:-left-14.-scale-x-100.cursor-pointer > span > img";
+            clickButton(ButtonCarousselLeft);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-    // Mint WAX
-    const buttonWaxMint = document.querySelector("div:nth-child(3) > div:nth-child(2) > button");
-    
-    if (buttonWaxMint != null && buttonWaxMint.innerText === "Claim All") {
-      buttonWaxMint.click();
-      await new Promise((res) => setTimeout(res, PAUSE_MINING));
+            timeToBattle = document.querySelector("#fight-now > button");
+            if (timeToBattle != null && timeToBattle.innerText === "Daily Battle") {
+                const ButtonAutoBattle = document.querySelector("#auto-daily-battle > button");
+                if (ButtonAutoBattle != null) {
+                    for(let i=0; i<3; i++) {
+                        ButtonAutoBattle.click();
+                        await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+                    }
+                }
+                await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+
+                const ButtonAutoBattleAccept = document.querySelector("div > div > div.mt-5 > button");
+                if (ButtonAutoBattleAccept != null) {ButtonAutoBattleAccept.click();}
+                    console.log('... Autobattle executed'); 
+
+                    await new Promise((res) => setTimeout(res, PAUSE_MINING));
+            }
+
+            // BossBattle
+            const ButtonBossBattle = "#auto-boss-battle-desktop > button"
+            clickButton(ButtonBossBattle);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+            availableBossBattles = document.querySelector("div > select > option:nth-child(1)").innerText.split("(").pop().split(" of")[0];
+            if (availableBossBattles != "0") {
+                const ButtonBattleAll = "div > div > div.mt-5 > button";
+                waitTime = clickActiveButton(ButtonBattleAll, "BossBattle");
+                await new Promise((res) => setTimeout(res, waitTime));
+            }
+            else {
+                buttonClose = document.querySelectorAll("div > button.absolute")[1];
+                buttonClose.click();
+                await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+            }
+
+            // AutoRest
+            //TODO
+        }
+
+        if (ManageLoot) {
+            /* 
+            *   Manage Loot
+            */
+            // Navigate to Loot
+            console.log("Manage Loot ...");
+            clickButton(ButtonTopMenuDungeons);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+
+            const ButtonTopMenuItemLoot = "li:nth-child(4) > div > div";
+            clickButton(ButtonTopMenuItemLoot);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+
+            // Mint daily
+            for(let i=3; i<8; i++) {
+                amountTreasure = document.querySelector(`#lastrewards > section:nth-child(5) > div:nth-child(${i}) > div > span:first-child`).innerText.split("x")[0];
+                if(amountTreasure != null && amountTreasure > 0) {
+                    console.log(i-3 + " = " + amountTreasure + " will be minted");
+                    buttonOpen = `#lastrewards > section:nth-child(5) > div:nth-child(${i}) > button`;
+                    clickButton(buttonOpen);
+                    await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+
+                    buttonOpenDialog = `div > div > div:nth-child(4) > button`;
+                    clickButton(buttonOpenDialog);
+                    await new Promise((res) => setTimeout(res, PAUSE_MINING));
+                }
+            }
+            
+            // Mint TODO
+        }
     }
-    await new Promise((res) => setTimeout(res, PAUSE_TAB));
-  }
+
+
+    function clickButton(path) {
+        buttonClick = document.querySelector(path);
+        if (buttonClick != null) { 
+            buttonClick.click(); 
+        }
+        else {
+            console.log('Button not active! -> ' + path);
+        }
+    }
+
+    function clickActiveButton(path, name) {
+        buttonClick = document.querySelector(path);
+        if (buttonClick != null && !buttonClick.className.startsWith('cursor-not-allowed')) { 
+            buttonClick.click(); 
+            console.log(name + " ... minted");
+            return PAUSE_MINING;
+        }
+        else {
+            console.log('Button not active! -> ' + path);
+            return PAUSE_BETWEEN;
+        }
+    }
 })();
