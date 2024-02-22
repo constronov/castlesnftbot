@@ -90,6 +90,25 @@
             await new Promise((res) => setTimeout(res, waitTime));
         }
 
+        if (ManageMiners) {
+            /* 
+            *   Manage Miners
+            */
+            // Navigate to Miners
+            console.log("Manage Miners ...");
+            clickButton(ButtonTopMenuCraft);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+
+            const ButtonTopMenuItemCarpenters = "li:nth-child(5) > div > div > span > img";
+            clickButton(ButtonTopMenuItemCarpenters);
+            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+
+            //Mint stuff
+            const ButtonMinersMint = "div:nth-child(4) > div > div > div.tooltip > button";
+            waitTime = clickActiveButton(ButtonMinersMint, "Carpenters");
+            await new Promise((res) => setTimeout(res, waitTime));
+        }
+
         if (ManageTomes) {
             /* 
             *   Manage Tomes
