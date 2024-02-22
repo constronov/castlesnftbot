@@ -6,6 +6,7 @@
     const ManageCastles = true;
     const ManageLumberjacks = true;
     const ManageCarpenters = true;
+    const ManageMiners = true;
     const ManageTomes = true;
     const ManageBattles = true;
     const ManageLoot = false;
