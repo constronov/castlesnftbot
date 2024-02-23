@@ -32,6 +32,16 @@
             const ButtonBaronsMint = "div:nth-child(4) > div > div > div.tooltip > button";
             waitTime = clickActiveButton(ButtonBaronsMint, "Barons");
             await new Promise((res) => setTimeout(res, waitTime));
+
+            // Recharge
+            const ButtonBaronsRecharge = "div:nth-child(4) > div > div.z-50 > button > div";
+            waitTime = clickActiveButton(ButtonBaronsRecharge);
+            if (waitTime == PAUSE_MINING) {
+                await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+                const ButtonBaronsRechargeDialogue = "div > div > div.-mt-1 > button";
+                clickButton(ButtonBaronsRechargeDialogue);
+            }
+            await new Promise((res) => setTimeout(res, waitTime));
         }
 
         if (ManageCastles) {
@@ -50,6 +60,16 @@
             // Mint stuff
             const ButtonCastlesMint = "div:nth-child(4) > div > div > div.tooltip > button";
             waitTime = clickActiveButton(ButtonCastlesMint, "Castles");
+            await new Promise((res) => setTimeout(res, waitTime));
+
+            // Recharge
+            const ButtonCastlesRecharge = "div:nth-child(4) > div > div.z-50 > button > div";
+            waitTime = clickActiveButton(ButtonCastlesRecharge);
+            if (waitTime == PAUSE_MINING) {
+                await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+                const ButtonCastlesRechargeDialogue = "div > div > div.-mt-1 > button";
+                clickButton(ButtonCastlesRechargeDialogue);
+            }
             await new Promise((res) => setTimeout(res, waitTime));
         }
 
@@ -70,6 +90,16 @@
             const ButtonLumberjacksMint = "div:nth-child(4) > div > div > div.tooltip > button";
             waitTime = clickActiveButton(ButtonLumberjacksMint, "Lumberjacks");
             await new Promise((res) => setTimeout(res, waitTime));
+
+            // Recharge
+            const ButtonLumberjacksRecharge = "div:nth-child(4) > div > div.z-50 > button > div";
+            waitTime = clickActiveButton(ButtonLumberjacksRecharge);
+            if (waitTime == PAUSE_MINING) {
+                await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+                const ButtonLumberjacksRechargeDialogue = "div > div > div.-mt-1 > button";
+                clickButton(ButtonLumberjacksRechargeDialogue);
+            }
+            await new Promise((res) => setTimeout(res, waitTime));
         }
 
         if (ManageCarpenters) {
@@ -89,6 +119,16 @@
             const ButtonCarpentersMint = "div:nth-child(4) > div > div > div.tooltip > button";
             waitTime = clickActiveButton(ButtonCarpentersMint, "Carpenters");
             await new Promise((res) => setTimeout(res, waitTime));
+
+            // Recharge
+            const ButtonCarpentersRecharge = "div:nth-child(4) > div > div.z-50 > button > div";
+            waitTime = clickActiveButton(ButtonCarpentersRecharge);
+            if (waitTime == PAUSE_MINING) {
+                await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+                const ButtonCarpentersRechargeDialogue = "div > div > div.-mt-1 > button";
+                clickButton(ButtonCarpentersRechargeDialogue);
+            }
+            await new Promise((res) => setTimeout(res, waitTime));
         }
 
         if (ManageMiners) {
@@ -107,6 +147,16 @@
             //Mint stuff
             const ButtonMinersMint = "div:nth-child(4) > div > div > div.tooltip > button";
             waitTime = clickActiveButton(ButtonMinersMint, "Carpenters");
+            await new Promise((res) => setTimeout(res, waitTime));
+
+            // Recharge
+            const ButtonMinersRecharge = "div:nth-child(4) > div > div.z-50 > button > div";
+            waitTime = clickActiveButton(ButtonMinersRecharge);
+            if (waitTime == PAUSE_MINING) {
+                await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+                const ButtonMinersRechargeDialogue = "div > div > div.-mt-1 > button";
+                clickButton(ButtonMinersRechargeDialogue);
+            }
             await new Promise((res) => setTimeout(res, waitTime));
         }
 
