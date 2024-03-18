@@ -7,7 +7,7 @@
     const ManageLumberjacks = true;
     const ManageCarpenters = true;
     const ManageMiners = true;
-    const ManageTomes = true;
+    const ManageTomes = false;
     const ManageBattles = true;
     const ManageLoot = false;
 
