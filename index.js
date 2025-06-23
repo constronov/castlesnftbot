@@ -34,7 +34,7 @@
             await new Promise((res) => setTimeout(res, waitTime));
 
             // Recharge
-            const ButtonBaronsRecharge = "div:nth-child(4) > div > div.z-50 > button > div";
+            const ButtonBaronsRecharge = "div:nth-child(4) > div > div.z-50 > button > div > div > p";
             waitTime = clickActiveButton(ButtonBaronsRecharge);
             if (waitTime == PAUSE_MINING) {
                 await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
@@ -63,7 +63,7 @@
             await new Promise((res) => setTimeout(res, waitTime));
 
             // Recharge
-            const ButtonCastlesRecharge = "div:nth-child(4) > div > div.z-50 > button > div";
+            const ButtonCastlesRecharge = "div:nth-child(4) > div > div.z-50 > button > div > div > p";
             waitTime = clickActiveButton(ButtonCastlesRecharge);
             if (waitTime == PAUSE_MINING) {
                 await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
@@ -92,7 +92,7 @@
             await new Promise((res) => setTimeout(res, waitTime));
 
             // Recharge
-            const ButtonLumberjacksRecharge = "div:nth-child(4) > div > div.z-50 > button > div";
+            const ButtonLumberjacksRecharge = "div:nth-child(4) > div > div.z-50 > button > div > div > p";
             waitTime = clickActiveButton(ButtonLumberjacksRecharge);
             if (waitTime == PAUSE_MINING) {
                 await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
@@ -121,7 +121,7 @@
             await new Promise((res) => setTimeout(res, waitTime));
 
             // Recharge
-            const ButtonCarpentersRecharge = "div:nth-child(4) > div > div.z-50 > button > div";
+            const ButtonCarpentersRecharge = "div:nth-child(4) > div > div.z-50 > button > div > div > p";
             waitTime = clickActiveButton(ButtonCarpentersRecharge);
             if (waitTime == PAUSE_MINING) {
                 await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
@@ -150,7 +150,7 @@
             await new Promise((res) => setTimeout(res, waitTime));
 
             // Recharge
-            const ButtonMinersRecharge = "div:nth-child(4) > div > div.z-50 > button > div";
+            const ButtonMinersRecharge = "div:nth-child(4) > div > div.z-50 > button > div > div > p";
             waitTime = clickActiveButton(ButtonMinersRecharge);
             if (waitTime == PAUSE_MINING) {
                 await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
@@ -226,7 +226,7 @@
 
             timeToBattle = document.querySelector("#fight-now > button");
             if (timeToBattle != null && timeToBattle.innerText === "Daily Battle") {
-                const ButtonAutoBattle = document.querySelector("#auto-daily-battle > button");
+                const ButtonAutoBattle = document.querySelector("#auto-daily-battle > button > div > div > p");
                 if (ButtonAutoBattle != null) {
                     for(let i=0; i<3; i++) {
                         ButtonAutoBattle.click();
@@ -243,7 +243,7 @@
             }
 
             // BossBattle
-            const ButtonBossBattle = "#auto-boss-battle-desktop > button"
+            const ButtonBossBattle = "#auto-boss-battle-desktop > button > div > div > p"
             clickButton(ButtonBossBattle);
             await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
             availableBossBattles = document.querySelector("div > select > option:nth-child(1)").innerText.split("(").pop().split(" of")[0];
