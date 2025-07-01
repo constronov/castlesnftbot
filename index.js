@@ -9,7 +9,7 @@
     const ManageMiners = true;
     const ManageTomes = false;
     const ManageBattles = true;
-    const ManageLoot = false;
+    const ManageLoot = true;
 
     const RestType = 4; // 0 = Common, 1 Uncommon, 2 = Rare, 3 = Epic, 4 = Legendary, 5 = Mythic
 
