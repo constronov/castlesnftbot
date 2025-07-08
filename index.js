@@ -11,7 +11,7 @@
     const ManageBattles = true;
     const ManageLoot = true;
 
-    const RestType = 4; // 0 = Common, 1 Uncommon, 2 = Rare, 3 = Epic, 4 = Legendary, 5 = Mythic
+    const RestType = [4,5]; // 0 = Common, 1 Uncommon, 2 = Rare, 3 = Epic, 4 = Legendary, 5 = Mythic
 
     const ButtonTopMenuCraft = "div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(4) > p > span";
     const ButtonTopMenuDungeons = "div > div.flex.items-between.lg\\:justify-between.flex-1.gap-4 > ul > li:nth-child(6) > p > span";
@@ -261,20 +261,22 @@
             }
 
             // AutoRest
-            const ButtonAutoRest = "#auto-rest > button > div > div > p";
-            clickButton(ButtonAutoRest);
-            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
-            
-            const ComboBoxType = document.querySelector('.gradiente-select');
-            ComboBoxType.value = ComboBoxType.options[RestType].value;
-            ComboBoxType.dispatchEvent(new Event('input', { bubbles: true }));
-            ComboBoxType.dispatchEvent(new Event('change', { bubbles: true }));
+            for (let restTypeConc of RestType) {
+                const ButtonAutoRest = "#auto-rest > button > div > div > p";
+                clickButton(ButtonAutoRest);
+                await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+                
+                const ComboBoxType = document.querySelector('.gradiente-select');
+                ComboBoxType.value = ComboBoxType.options[restTypeConc].value;
+                ComboBoxType.dispatchEvent(new Event('input', { bubbles: true }));
+                ComboBoxType.dispatchEvent(new Event('change', { bubbles: true }));
 
-            await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
+                await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
-            const ButtonRest = "div.mt-5 > button > div > div > p";
-            waitTime = clickActiveButton(ButtonRest, "Rest");
-            await new Promise((res) => setTimeout(res, waitTime));
+                const ButtonRest = "div.mt-5 > button > div > div > p";
+                waitTime = clickActiveButton(ButtonRest, "Rest");
+                await new Promise((res) => setTimeout(res, waitTime));
+            }
         }
 
         if (ManageLoot) {
@@ -291,7 +293,7 @@
             await new Promise((res) => setTimeout(res, PAUSE_BETWEEN));
 
             // Mint daily
-            for(let i=3; i<8; i++) {
+            for(let i=3; i<9; i++) {
                 amountTreasure = document.querySelector(`#lastrewards > section:nth-child(5) > div:nth-child(${i}) > div > span:first-child`).innerText.split("x")[0];
                 if(amountTreasure != null && amountTreasure > 0) {
                     console.log(i-3 + " = " + amountTreasure + " will be minted");
@@ -304,8 +306,6 @@
                     await new Promise((res) => setTimeout(res, PAUSE_MINING));
                 }
             }
-            
-            // Mint TODO
         }
     }
 
